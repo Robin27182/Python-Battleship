@@ -25,7 +25,7 @@ class Game:
     def shoot(self, loc, at_player):
         '''
         Shoots at loc at correct user, if a ship is sunk, check for game loss.
-        Returns a hit_and_sunk list. Bool1 is hit, bool2 is sunk
+        Returns true if hit
         Calls board.shoot_at Alters hit and sunk values of ships accordingly
         '''
         if at_player:

@@ -8,6 +8,8 @@ class Board:
         '''
         self.player_board = player_board
         self.ships = []
+        self.all_hits = []
+        self.all_misses = []
         self.amount_sunk = 0
 
     def shoot_at(self, loc):
@@ -19,7 +21,9 @@ class Board:
         for ship in self.ships:
             hit_and_sunk = ship.hit_attempt(loc)
             if hit_and_sunk[0] == True:
+                self.all_hits.append(loc)
                 return True
+        self.all_misses.append(loc)
         return False
     
     def create_ship(self, locs):
