@@ -1,4 +1,4 @@
-import Ship
+from Ship import Ship
 
 class Board:
     def __init__(self, player_board):
@@ -10,6 +10,7 @@ class Board:
         self.ships = []
         self.all_hits = []
         self.all_misses = []
+        self.all_ship_locs = []
         self.amount_sunk = 0
 
     def shoot_at(self, loc):
@@ -32,6 +33,8 @@ class Board:
         adds obj to class's list 
         no return
         '''
+        for loc in locs:
+            self.all_ship_locs.append(loc)
         self.ships.append(Ship(locs))
 
     def update_amount_sunk(self):
