@@ -25,6 +25,7 @@ class Ship:
         returns a hit_and_sunk list, bool1 for hit, bool2 for sunk
         """
         hit_and_sunk = [False, False]
+        print(loc,self.board_locs)
         if loc in self.board_locs:
             self.hit_locs.append(loc)
             hit_and_sunk[0] = True

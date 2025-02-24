@@ -21,11 +21,14 @@ class Board:
         '''
         for ship in self.ships:
             hit_and_sunk = ship.hit_attempt(loc)
-            if hit_and_sunk[0] == True:
+            if hit_and_sunk[0]:
                 self.all_hits.append(loc)
-                return True
+                if hit_and_sunk[1]:
+                    return "Hit and Sunk!"
+                else:
+                    return "Hit!"
         self.all_misses.append(loc)
-        return False
+        return "Miss!"
     
     def create_ship(self, locs):
         '''
